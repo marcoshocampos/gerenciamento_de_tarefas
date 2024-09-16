@@ -1,11 +1,11 @@
 from django.conf import settings
 from django.conf.urls.static import static
-from django.urls import path
-from app_cadastro_tarefas import views
+from django.contrib import admin
+from django.urls import include, path
 
 urlpatterns = [
-    #rota, view responsável, nome de referência
-    path('', views.cadastro, name='cadastro')
+    path('', include('app_cadastro_tarefas.urls')),
+    path('admin/', admin.site.urls),
 ]
 
 if settings.DEBUG:
